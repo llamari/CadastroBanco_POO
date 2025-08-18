@@ -9,14 +9,13 @@ public class Name extends JPanel {
     JLabel JlNome = new JLabel();
     JTextField JtfNome = new JTextField();
 
-    public Name(String name) {
+    public Name() {
         setLayout(null);
         setBounds(10, 50, 365, 20); 
         JlNome.setText("Nome:");
         JlNome.setBounds(00, 0, 60, 18);
         JlNome.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        JtfNome.setText(name);
         JtfNome.setBounds(65, 0, 300, 20);
         add(JlNome);
         add(JtfNome);

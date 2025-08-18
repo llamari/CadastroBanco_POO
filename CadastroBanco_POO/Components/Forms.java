@@ -13,7 +13,7 @@ public class Forms extends JPanel {
     Agency Agencia = new Agency();
     Account Conta = new Account();
     JSeparator01 JSeparator01 = new JSeparator01(40);
-    Name Nome = new Name("Oi?");
+    Name Nome = new Name();
     Adress Endereco = new Adress();
     Phone Telefone = new Phone();
     CPF Cpf = new CPF();
