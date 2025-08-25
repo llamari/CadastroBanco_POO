@@ -2,6 +2,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class Buttons extends JPanel {
     JButton JbConsult = new JButton();
@@ -28,6 +29,18 @@ public class Buttons extends JPanel {
         add(JbClose);
         add(JbConsult);
         add(JbUpdate);
+
+        JbConsult.revalidate();
+        JbConsult.repaint();
+        JbConsult.revalidate();
+        JbConsult.repaint();
+        JbConsult.revalidate();
+        JbConsult.repaint();
+
+        new Timer(100, e -> {
+            revalidate();
+            repaint();
+        }).start();
 
         JbConsult.addActionListener(e -> {
             onConsult.run();
