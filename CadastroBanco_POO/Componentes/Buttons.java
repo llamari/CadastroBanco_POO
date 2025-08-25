@@ -8,27 +8,33 @@ public class Buttons extends JPanel {
     JButton JbConsult = new JButton();
     JButton JbUpdate = new JButton();
     JButton JbClose = new JButton();
+    JButton JbCreate = new JButton();
 
-    public Buttons(Runnable onConsult, Runnable onUpdate) {
+    public Buttons(Runnable onConsult, Runnable onUpdate, Runnable onCreate) {
         setLayout(null);
         setBounds(25, 190, 335, 35);
 
         JbConsult.setText("Consultar");
-        JbConsult.setBounds(0, 0, 100, 23);
+        JbConsult.setBounds(0, 0, 80, 23);
         JbConsult.setMnemonic(KeyEvent.VK_S);
 
         JbUpdate.setText("Atualizar");
-        JbUpdate.setBounds(115, 0, 100, 23);
+        JbUpdate.setBounds(85, 0, 80, 23);
         JbUpdate.setMnemonic(KeyEvent.VK_A);
         JbUpdate.setEnabled(false);
 
-        JbClose.setText("Fechar");
-        JbClose.setBounds(230, 0, 100, 23);
-        JbClose.setMnemonic(KeyEvent.VK_F);
+        JbCreate.setText("Criar");
+        JbCreate.setBounds(170, 0, 80, 23);
+        JbCreate.setMnemonic(KeyEvent.VK_C);
 
+        JbClose.setText("Fechar");
+        JbClose.setBounds(260, 0, 80, 23);
+        JbClose.setMnemonic(KeyEvent.VK_F);
+        
         add(JbClose);
         add(JbConsult);
         add(JbUpdate);
+        add(JbCreate);
 
         JbConsult.revalidate();
         JbConsult.repaint();
@@ -56,5 +62,13 @@ public class Buttons extends JPanel {
         JbClose.addActionListener(e -> {
             System.exit(0);
         });
+
+        JbCreate.addActionListener(e -> {
+            onCreate.run();
+        });
+    }
+
+    public JButton getJbUpdate() {
+        return JbUpdate;
     }
 }

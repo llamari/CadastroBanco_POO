@@ -1,21 +1,33 @@
 package Form_Components;
 
+import java.text.ParseException;
+
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.text.MaskFormatter;
 
 public class Phone extends JPanel {
     JLabel JlTelefone = new JLabel();
-    JTextField JtfTelefone = new JTextField();
+    JFormattedTextField JtfTelefone;
 
-    public Phone(){
+    public Phone() {
         setLayout(null);
         setBounds(10, 100, 425, 20);
 
         JlTelefone.setText("Telefone:");
         JlTelefone.setBounds(0, 0, 60, 18);
         JlTelefone.setHorizontalAlignment(SwingConstants.RIGHT);
+
+        try {
+            MaskFormatter mask = new MaskFormatter("(##) #####-####");
+            mask.setPlaceholderCharacter('_');
+            JtfTelefone = new JFormattedTextField(mask);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            JtfTelefone = new JFormattedTextField();
+        }
 
         JtfTelefone.setBounds(65, 0, 300, 20);
 

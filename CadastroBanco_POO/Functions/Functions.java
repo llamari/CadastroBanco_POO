@@ -44,4 +44,21 @@ public class Functions {
             }
         }
     }
+
+    public void addAccount(String agencyNumber, String accountNumber, String name, String adress, String phoneNumber,
+            String cpf, String type) {
+
+        for (Accounts account : accountsList) {
+            if (account.getAccountNumber().equals(accountNumber) && account.getAgencyNumber().equals(agencyNumber)) {
+                account.setName(name);
+                account.setAdress(adress);
+                account.setPhoneNumber(phoneNumber);
+                account.setCpf(cpf);
+                account.setType(type);
+                return;
+            }
+        }
+        Accounts account = new Accounts(agencyNumber, accountNumber, name, adress, phoneNumber, cpf, type);
+        accountsList.add(account);
+    }
 }

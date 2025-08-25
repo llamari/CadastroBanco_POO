@@ -25,6 +25,10 @@ public class Forms extends JPanel {
         addObjects();
     }
 
+    public boolean isFormValid() {
+        return !Agencia.getAgencyNumber().isEmpty() && !Conta.getAccountNumber().isEmpty() && !Nome.getName().isEmpty() && !Endereco.getAdress().isEmpty() && !Telefone.getPhone().isEmpty() && !Cpf.getCpf().isEmpty() && !TipoConta.getAccountType().isEmpty();
+    }
+
     private void addObjects() {
         add(Agencia);
         add(Conta);
